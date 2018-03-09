@@ -8,6 +8,11 @@ Compilation of lab solutions during the 4 years of Computer Science Engineering 
     
   * Operating Systems Lab
 
+## To Do:
+  * Add more Labs
+  * Add pictres/gifs of simulations
+  * Attach questions/assignment-problems to the solutions
+
 `Do Note that this isn't a thorough compilation! It does not contain the solutions of all the labs, and/or might be buggy!`
 
 
