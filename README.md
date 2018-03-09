@@ -3,6 +3,9 @@ Compilation of lab solutions during the 4 years of Computer Science Engineering 
 
 ## Labs Included:
   * Computer Networks Lab
+    Using [OMNeT++](https://www.omnetpp.org/) to simulate Computer Networks. The files included are the key files, which can be 
+    imported in the project directly. Assignment's corresponding questions are also included along with the solution code.
+    
   * Operating Systems Lab
 
 `Do Note that this isn't a thorough compilation! It does not contain the solutions of all the labs, and/or might be buggy!`
