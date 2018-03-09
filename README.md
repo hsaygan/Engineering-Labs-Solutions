@@ -5,7 +5,7 @@ Compilation of lab solutions during the 4 years of Computer Science Engineering 
   * Computer Networks Lab
   * Operating Systems Lab
 
-`Do Note that this isn't a thorough compilation! It does not contain the solutions of all the labs, or might be buggy!`
+`Do Note that this isn't a thorough compilation! It does not contain the solutions of all the labs, and/or might be buggy!`
 
 
 Feel free to contribute!
