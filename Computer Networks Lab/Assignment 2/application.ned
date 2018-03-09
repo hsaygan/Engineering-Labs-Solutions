@@ -3,34 +3,26 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+//
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
+//
+// TODO auto-generated module
+//
 
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
+simple Application
 {
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
+    parameters:
+        int id;
 
-#endif
+    gates:
+        input in;
+        output out;
+}

@@ -3,34 +3,33 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+//
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
-
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
+network TwoNode
 {
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
+    @display("bgb=217,309");
+    submodules:
+        node1: Node
+            {
+                id = 1;
+                @display("p=44,225");
+            }
 
-#endif
+        node2: Node
+            {
+                id = 2;
+                @display("p=174,58");
+            }
+
+    connections:
+        node1.out --> node2.in;
+        node2.out --> node1.in;
+}

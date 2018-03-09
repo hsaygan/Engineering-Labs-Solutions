@@ -13,22 +13,31 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
+#ifndef __LAB2_DATALINK_H_
+#define __LAB2_DATALINK_H_
 
 #include <omnetpp.h>
+#include "A_PDU_m.h"
+#include "DL_PDU_m.h"
 
 using namespace omnetpp;
 
-class Node : public cSimpleModule
+/**
+ * TODO - Generated class
+ */
+class Datalink : public cSimpleModule
 {
   protected:
     int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
+    int count;
+    int R_pointer;
+    cGate* from_al;
+    cGate* from_pl;
+    cGate* to_al;
+    cGate* to_pl;
+    cMessage* retransmit;
+    DL_PDU* d;
+    DL_PDU* buffer;
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
 };

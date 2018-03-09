@@ -13,24 +13,19 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
-
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
+network LayerNetwork
 {
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
-
-#endif
+    @display("bgb=450,97");
+    submodules:
+        node1: Node {
+            id = 1;
+            @display("p=109,30");
+        }
+        node2: Node {
+            id = 2;
+            @display("p=327,30");
+        }
+    connections:
+        node1.out --> {  delay = 1ms; } --> node2.in;
+        node2.out --> {  delay = 1ms; } --> node1.in;
+}

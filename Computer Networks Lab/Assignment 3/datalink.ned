@@ -13,24 +13,16 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
-
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
+//
+// TODO auto-generated module
+//
+simple Datalink
 {
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
-
-#endif
+    parameters :
+        int did;
+    gates :
+        input from_al;
+        input from_pl;
+        output to_al;
+        output to_pl;
+}

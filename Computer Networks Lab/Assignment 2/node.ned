@@ -13,24 +13,32 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
-
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
+module Node
 {
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
+    @display("bgb=404,181");
+    gates:
+        input in;
+        output out;
 
-#endif
+    submodules:
+        Application: Application {
+            @display("p=53,61");
+        }
+        Datalink: Datalink {
+            @display("p=185,61");
+        }
+        Physical: Physical {
+            @display("p=336,41");
+        }
+    connections:
+
+
+        Application.out --> Datalink.inone;
+        Datalink.outone --> Application.in;
+
+        Datalink.outtwo --> Physical.inone;
+        Physical.outone --> Datalink.intwo;
+
+        Physical.outtwo --> out;
+        in --> Physical.intwo;
+}

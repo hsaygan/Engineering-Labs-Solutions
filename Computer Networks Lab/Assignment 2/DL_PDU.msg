@@ -13,24 +13,12 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __LAB_1_TEST_NODE_H_
-#define __LAB_1_TEST_NODE_H_
-
-#include <omnetpp.h>
-
-using namespace omnetpp;
-
-class Node : public cSimpleModule
-{
-  protected:
-    int id;
-    int address;
-    cGate* gInA;
-    cGate* gInB;
-    cGate* gOutA;
-    cGate* gOutB;
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
-};
-
-#endif
+//
+// TODO generated message class
+//
+packet DL_PDU {
+    string data;
+    int type; // 0=data & 1 = aCK
+    int src;
+    int dest;
+}
