@@ -1,1 +1,2 @@
-CAN SUBFOLDERS HAVE README DISPLAY?
+## Computer Networks Lab
+Using Omnetpp
