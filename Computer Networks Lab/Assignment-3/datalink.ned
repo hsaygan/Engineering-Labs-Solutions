@@ -21,8 +21,8 @@ simple Datalink
     parameters :
         int did;
     gates :
-        input from_al;
-        input from_pl;
-        output to_al;
-        output to_pl;
+        input inA;
+        input inB;
+        output outA;
+        output outB;
 }

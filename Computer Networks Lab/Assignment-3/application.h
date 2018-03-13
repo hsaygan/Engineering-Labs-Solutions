@@ -29,8 +29,8 @@ class Application : public cSimpleModule
   protected:
     int id;
     int count;
-    cGate* from_dl;
-    cGate* to_dl;
+    cGate* in;
+    cGate* out;
     A_PDU* packets[26];
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);

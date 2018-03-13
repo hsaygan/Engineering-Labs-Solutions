@@ -23,6 +23,6 @@ simple Application
         int aid;
         int count;
     gates :
-        input from_dl;
-        output to_dl;
+        input in;
+        output out;
 }

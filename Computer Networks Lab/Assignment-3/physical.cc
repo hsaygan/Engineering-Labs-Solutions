@@ -20,33 +20,41 @@ Define_Module(Physical);
 
 void Physical::initialize()
 {
-    from_dl = gate("from_dl");
-    from_medium = gate("from_medium");
-    to_dl = gate("to_dl");
-    to_medium = gate("to_medium");
-    // TODO - Generated method body
+    inA = gate("inA");
+    inB = gate("inB");
+    outA = gate("outA");
+    outB = gate("outB");
 }
 
 void Physical::handleMessage(cMessage *msg)
 {
-    if(msg->getArrivalGate() == from_dl){
+    if(msg->getArrivalGate() == inA)
+    {
         DL_PDU* d = check_and_cast<DL_PDU*>(msg);
         P_PDU* p = new P_PDU();
         p->encapsulate(d);
-        if(uniform(0,1) < 0.1){
+
+        if(uniform(0,1) <= 0.1)
+        {
             EV << "message deleted";
             delete p;
-        } else {
-            send(p, to_medium);
         }
-    } else if(msg->getArrivalGate() == from_medium){
-        P_PDU* p = check_and_cast<P_PDU*>(msg);
-        if(uniform(0,1) < 0.15){
-            EV << "message deleted";
-            delete p;
-        } else {
-            send(p->decapsulate(), to_dl);
+        else
+        {
+            send(p, outB);
         }
     }
-    // TODO - Generated method body
+    else if(msg->getArrivalGate() == inB)
+    {
+        P_PDU* p = check_and_cast<P_PDU*>(msg);
+        if(uniform(0,1) <= 0.15)
+        {
+            EV << "message deleted";
+            delete p;
+        }
+        else
+        {
+            send(p->decapsulate(), outA);
+        }
+    }
 }

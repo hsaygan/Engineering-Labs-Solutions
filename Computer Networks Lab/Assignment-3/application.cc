@@ -20,8 +20,8 @@ Define_Module(Application);
 
 void Application::initialize()
 {
-    from_dl = gate("from_dl");
-    to_dl = gate("to_dl");
+    in = gate("in");
+    out = gate("out");
     id = par("aid");
     count = par("count");
     int i;
@@ -37,26 +37,24 @@ void Application::initialize()
         cMessage* start = new cMessage();
         scheduleAt(0, start);
     }
-    // TODO - Generated method body
 }
 
 void Application::handleMessage(cMessage *msg)
 {
     if(msg -> isSelfMessage()){
-        send(packets[0], to_dl);
+        send(packets[0], out);
         count = 1;
     } else {
         A_PDU* a = check_and_cast<A_PDU*>(msg);
         if(strcmp(a->getType(),"DATA") == 0){
             A_PDU* a = new A_PDU();
             a->setType("ACK");
-            send(a, to_dl);
+            send(a, out);
         } else {
             if(count < 26){
-                send(packets[count], to_dl);
+                send(packets[count], out);
                 count++;
             }
         }
     }
-    // TODO - Generated method body
 }

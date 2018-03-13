@@ -38,10 +38,10 @@ module Node
             pid = id;
         }
     connections:
-        app.to_dl --> data.from_al;
-        data.to_pl --> phy.from_dl;
-        phy.to_medium --> out;
-        in --> phy.from_medium;
-        phy.to_dl --> data.from_pl;
-        data.to_al --> app.from_dl;
+        app.out --> data.inA;
+        data.outB --> phy.inA;
+        phy.outB --> out;
+        in --> phy.inB;
+        phy.outA --> data.inB;
+        data.outA --> app.in;
 }

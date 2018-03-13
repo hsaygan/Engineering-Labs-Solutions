@@ -31,10 +31,10 @@ class Datalink : public cSimpleModule
     int id;
     int count;
     int R_pointer;
-    cGate* from_al;
-    cGate* from_pl;
-    cGate* to_al;
-    cGate* to_pl;
+    cGate* inA;
+    cGate* inB;
+    cGate* outA;
+    cGate* outB;
     cMessage* retransmit;
     DL_PDU* d;
     DL_PDU* buffer;

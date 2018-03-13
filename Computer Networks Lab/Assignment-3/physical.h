@@ -29,10 +29,10 @@ class Physical : public cSimpleModule
 {
   protected:
     int id;
-    cGate* from_dl;
-    cGate* from_medium;
-    cGate* to_dl;
-    cGate* to_medium;
+    cGate* inA;
+    cGate* inB;
+    cGate* outA;
+    cGate* outB;
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
 };

@@ -21,17 +21,26 @@ Define_Module(Datalink);
 
 void Datalink::initialize()
 {
-    from_al = gate("from_al");
-    from_pl = gate("from_pl");
-    to_al = gate("to_al");
-    to_pl = gate("to_pl");
+    inA = gate("inA");
+    inB = gate("inB");
+    outA = gate("outA");
+    outB = gate("outB");
     count = 0;
     retransmit = new cMessage();
 }
 
 void Datalink::handleMessage(cMessage *msg)
 {
-    if(msg->getArrivalGate() == from_al){
+    if(msg->isSelfMessage())
+    {
+        if(msg == retransmit)
+        {
+            EV << "retransmitting";
+            send(buffer, outB);
+        }
+    }
+    else if(msg->getArrivalGate() == inA)
+    {
         A_PDU* a = check_and_cast<A_PDU*>(msg);
         d = new DL_PDU();
         int id = a->getAid();
@@ -42,39 +51,50 @@ void Datalink::handleMessage(cMessage *msg)
         buffer = d->dup();
         R_pointer = (id+1) % 2;
         scheduleAt(simTime() + 10.0, retransmit);
-        if(uniform(0,1) < 0.3){
-            sendDelayed(d, simTime()+2.0,to_pl);
-        } else {
-            sendDelayed(d, simTime()+1.0,to_pl);
+
+        if(uniform(0,1) <= 0.3)
+        {
+            sendDelayed(d, simTime()+2.0,outB);
         }
-    } else if(msg->getArrivalGate() == from_pl){
+        else
+        {
+            sendDelayed(d, simTime()+1.0,outB);
+        }
+    }
+    else if(msg->getArrivalGate() == inB)
+    {
         d = check_and_cast<DL_PDU*>(msg);
-        if(strcmp(d->getType(),"DATA")== 0){
+        if(strcmp(d->getType(),"DATA")== 0)
+        {
             int id = d->getDid();
             id = (id+1)%2;
             DL_PDU* ack = new DL_PDU();
             ack->setType("ACK");
             ack->setDid(id);
-            if(uniform(0,1) < 0.4){
-                sendDelayed(d->decapsulate(), simTime()+2.0, to_al);
-                sendDelayed(ack, simTime()+2.0, to_pl);
-            } else {
-                sendDelayed(d->decapsulate(), simTime()+1.0, to_al);
-                sendDelayed(ack, simTime()+1.0, to_pl);
+
+            if(uniform(0,1) <= 0.4)
+            {
+                sendDelayed(d->decapsulate(), simTime()+2.0, outA);
+                sendDelayed(ack, simTime()+2.0, outB);
             }
-        } else {
-            if(R_pointer == d->getDid()){
+            else
+            {
+                sendDelayed(d->decapsulate(), simTime()+1.0, outA);
+                sendDelayed(ack, simTime()+1.0, outB);
+            }
+        }
+        else
+        {
+            if(R_pointer == d->getDid())
+            {
                 buffer = NULL;
                 cancelEvent(retransmit);
-            } else {
+            }
+            else
+            {
                 EV << "this";
                 delete msg;
             }
-        }
-    } else if(msg->isSelfMessage()){
-        if(msg == retransmit){
-            EV << "retransmitting";
-            send(buffer, to_pl);
         }
     }
 }

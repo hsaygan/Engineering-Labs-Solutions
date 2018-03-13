@@ -1,5 +1,5 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1282 rid General-0-20180313-01:00:16-16836 b 1000
+SB v 1282 rid General-0-20180313-12:22:48-2930 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t LayerNetwork n LayerNetwork cm 1
 MS id 1 d bgb=450,97
@@ -16,20 +16,20 @@ CS sm 2 sg 3 d ""
 CC sm 3 sg 3 dm 2 dg 0
 CS sm 3 sg 3 d ""
 MC id 6 c Application t Application pid 2 n app
-GC m 6 g 0 n from_dl o 0
-GC m 6 g 3 n to_dl o 1
+GC m 6 g 0 n in o 0
+GC m 6 g 3 n out o 1
 MS id 6 d p=91,32
 MC id 7 c Datalink t Datalink pid 2 n data
-GC m 7 g 0 n from_al o 0
-GC m 7 g 2 n from_pl o 0
-GC m 7 g 5 n to_al o 1
-GC m 7 g 7 n to_pl o 1
+GC m 7 g 0 n inA o 0
+GC m 7 g 2 n inB o 0
+GC m 7 g 5 n outA o 1
+GC m 7 g 7 n outB o 1
 MS id 7 d p=91,119
 MC id 8 c Physical t Physical pid 2 n phy
-GC m 8 g 0 n from_dl o 0
-GC m 8 g 2 n from_medium o 0
-GC m 8 g 5 n to_dl o 1
-GC m 8 g 7 n to_medium o 1
+GC m 8 g 0 n inA o 0
+GC m 8 g 2 n inB o 0
+GC m 8 g 5 n outA o 1
+GC m 8 g 7 n outB o 1
 MS id 8 d p=91,183
 CC sm 6 sg 3 dm 7 dg 0
 CC sm 7 sg 7 dm 8 dg 0
@@ -38,20 +38,20 @@ CC sm 2 sg 0 dm 8 dg 2
 CC sm 8 sg 5 dm 7 dg 2
 CC sm 7 sg 5 dm 6 dg 0
 MC id 9 c Application t Application pid 3 n app
-GC m 9 g 0 n from_dl o 0
-GC m 9 g 3 n to_dl o 1
+GC m 9 g 0 n in o 0
+GC m 9 g 3 n out o 1
 MS id 9 d p=91,32
 MC id 10 c Datalink t Datalink pid 3 n data
-GC m 10 g 0 n from_al o 0
-GC m 10 g 2 n from_pl o 0
-GC m 10 g 5 n to_al o 1
-GC m 10 g 7 n to_pl o 1
+GC m 10 g 0 n inA o 0
+GC m 10 g 2 n inB o 0
+GC m 10 g 5 n outA o 1
+GC m 10 g 7 n outB o 1
 MS id 10 d p=91,119
 MC id 11 c Physical t Physical pid 3 n phy
-GC m 11 g 0 n from_dl o 0
-GC m 11 g 2 n from_medium o 0
-GC m 11 g 5 n to_dl o 1
-GC m 11 g 7 n to_medium o 1
+GC m 11 g 0 n inA o 0
+GC m 11 g 2 n inB o 0
+GC m 11 g 5 n outA o 1
+GC m 11 g 7 n outB o 1
 MS id 11 d p=91,183
 CC sm 9 sg 3 dm 10 dg 0
 CC sm 10 sg 7 dm 11 dg 0

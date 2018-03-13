@@ -21,8 +21,8 @@ simple Physical
     parameters :
         int pid;
     gates :
-        input from_dl;
-        input from_medium;
-        output to_dl;
-        output to_medium;
+        input inA;
+        input inB;
+        output outA;
+        output outB;
 }
