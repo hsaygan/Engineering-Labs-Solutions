@@ -1,2 +1,2 @@
 ## Computer Networks Lab
-Using Omnetpp
+Using Omnet++ to simulate and visualize mutiple variations of Computer Networks.
