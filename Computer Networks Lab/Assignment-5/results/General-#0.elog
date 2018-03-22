@@ -1,0 +1,226 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1282 rid General-0-20180322-11:01:23-9934 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t ForwardingNetwork n ForwardingNetwork cm 1
+MS id 1 d ""
+MC id 2 c Node t Node pid 1 n Node1
+GC m 2 g 0 n inA o 0
+GC m 2 g 2 n inB o 0
+GC m 2 g 4 n inC o 0
+GC m 2 g 7 n outA o 1
+GC m 2 g 9 n outB o 1
+GC m 2 g 11 n outC o 1
+MS id 2 d p=69,43
+MC id 3 c Node t Node pid 1 n Node2
+GC m 3 g 0 n inA o 0
+GC m 3 g 2 n inB o 0
+GC m 3 g 4 n inC o 0
+GC m 3 g 7 n outA o 1
+GC m 3 g 9 n outB o 1
+GC m 3 g 11 n outC o 1
+MS id 3 d p=358,43
+MC id 4 c Node t Node pid 1 n Node3
+GC m 4 g 0 n inA o 0
+GC m 4 g 2 n inB o 0
+GC m 4 g 4 n inC o 0
+GC m 4 g 7 n outA o 1
+GC m 4 g 9 n outB o 1
+GC m 4 g 11 n outC o 1
+MS id 4 d p=212,214
+MC id 5 c Node t Node pid 1 n Node4
+GC m 5 g 0 n inA o 0
+GC m 5 g 2 n inB o 0
+GC m 5 g 4 n inC o 0
+GC m 5 g 7 n outA o 1
+GC m 5 g 9 n outB o 1
+GC m 5 g 11 n outC o 1
+MS id 5 d p=46,238
+MC id 6 c Node t Node pid 1 n Node5
+GC m 6 g 0 n inA o 0
+GC m 6 g 2 n inB o 0
+GC m 6 g 4 n inC o 0
+GC m 6 g 7 n outA o 1
+GC m 6 g 9 n outB o 1
+GC m 6 g 11 n outC o 1
+MS id 6 d p=397,214
+CC sm 3 sg 7 dm 2 dg 0
+CC sm 2 sg 7 dm 3 dg 0
+CC sm 4 sg 7 dm 2 dg 2
+CC sm 2 sg 9 dm 4 dg 0
+CC sm 5 sg 7 dm 2 dg 4
+CC sm 2 sg 11 dm 5 dg 0
+CC sm 3 sg 9 dm 4 dg 2
+CC sm 4 sg 9 dm 3 dg 2
+CC sm 6 sg 7 dm 3 dg 4
+CC sm 3 sg 11 dm 6 dg 0
+CC sm 6 sg 9 dm 4 dg 4
+CC sm 4 sg 11 dm 6 dg 2
+MB sm 1 tm 2 m initialize(0)
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n "" pe -1
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n "" pe 0
+ES t 0
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+MB sm 1 tm 4 m initialize(0)
+ME
+MB sm 1 tm 5 m initialize(0)
+ME
+MB sm 1 tm 6 m initialize(0)
+ME
+
+E # 1 t 0 m 2 ce 0 msg 0
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n "" pe -1
+BS id 1 tid 1 eid 1 etid 1 c Msgpacket n "" pe 1
+SH sm 2 sg 9
+ES t 0
+CL id 1 tid 1 eid 1 etid 1 c Msgpacket n "" pe 1 cid 2
+
+E # 2 t 0 m 4 ce 1 msg 1
+CM id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n "" pe -1
+BS id 3 tid 3 eid 3 etid 3 c Msgpacket n "" pe 2
+SH sm 4 sg 7
+ES t 0
+CL id 3 tid 3 eid 3 etid 3 c Msgpacket n "" pe 2 cid 4
+
+E # 3 t 0 m 2 ce 2 msg 3
+CM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n "" pe -1
+BS id 5 tid 5 eid 5 etid 5 c Msgpacket n "" pe 3
+SH sm 2 sg 11
+ES t 0
+CL id 5 tid 5 eid 5 etid 5 c Msgpacket n "" pe 3 cid 6
+
+E # 4 t 0 m 5 ce 3 msg 5
+CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n "" pe -1
+BS id 7 tid 7 eid 7 etid 7 c Msgpacket n "" pe 4
+SH sm 5 sg 7
+ES t 0
+CL id 7 tid 7 eid 7 etid 7 c Msgpacket n "" pe 4 cid 8
+
+E # 5 t 0 m 2 ce 4 msg 7
+CM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n "" pe -1
+BS id 9 tid 9 eid 9 etid 9 c Msgpacket n "" pe 5
+SH sm 2 sg 11
+ES t 0
+CL id 9 tid 9 eid 9 etid 9 c Msgpacket n "" pe 5 cid 10
+
+E # 6 t 0 m 5 ce 5 msg 9
+CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n "" pe -1
+BS id 11 tid 11 eid 11 etid 11 c Msgpacket n "" pe 6
+SH sm 5 sg 7
+ES t 0
+CL id 11 tid 11 eid 11 etid 11 c Msgpacket n "" pe 6 cid 12
+
+E # 7 t 0 m 2 ce 6 msg 11
+CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n "" pe -1
+BS id 13 tid 13 eid 13 etid 13 c Msgpacket n "" pe 7
+SH sm 2 sg 11
+ES t 0
+CL id 13 tid 13 eid 13 etid 13 c Msgpacket n "" pe 7 cid 14
+
+E # 8 t 0 m 5 ce 7 msg 13
+CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n "" pe -1
+BS id 15 tid 15 eid 15 etid 15 c Msgpacket n "" pe 8
+SH sm 5 sg 7
+ES t 0
+CL id 15 tid 15 eid 15 etid 15 c Msgpacket n "" pe 8 cid 16
+
+E # 9 t 0 m 2 ce 8 msg 15
+CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n "" pe -1
+BS id 17 tid 17 eid 17 etid 17 c Msgpacket n "" pe 9
+SH sm 2 sg 9
+ES t 0
+CL id 17 tid 17 eid 17 etid 17 c Msgpacket n "" pe 9 cid 18
+
+E # 10 t 0 m 4 ce 9 msg 17
+BS id 17 tid 17 eid 17 etid 17 c Msgpacket n "" pe 10
+SH sm 4 sg 11
+ES t 0
+CL id 17 tid 17 eid 17 etid 17 c Msgpacket n "" pe 10 cid 19
+
+E # 11 t 0 m 6 ce 10 msg 17
+CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n "" pe -1
+BS id 20 tid 20 eid 20 etid 20 c Msgpacket n "" pe 11
+SH sm 6 sg 9
+ES t 0
+CL id 20 tid 20 eid 20 etid 20 c Msgpacket n "" pe 11 cid 21
+
+E # 12 t 0 m 4 ce 11 msg 20
+BS id 20 tid 20 eid 20 etid 20 c Msgpacket n "" pe 12
+SH sm 4 sg 7
+ES t 0
+CL id 20 tid 20 eid 20 etid 20 c Msgpacket n "" pe 12 cid 22
+
+E # 13 t 0 m 2 ce 12 msg 20
+CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n "" pe -1
+BS id 23 tid 23 eid 23 etid 23 c Msgpacket n "" pe 13
+SH sm 2 sg 11
+ES t 0
+CL id 23 tid 23 eid 23 etid 23 c Msgpacket n "" pe 13 cid 24
+
+E # 14 t 0 m 5 ce 13 msg 23
+CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n "" pe -1
+BS id 25 tid 25 eid 25 etid 25 c Msgpacket n "" pe 14
+SH sm 5 sg 7
+ES t 0
+CL id 25 tid 25 eid 25 etid 25 c Msgpacket n "" pe 14 cid 26
+
+E # 15 t 0 m 2 ce 14 msg 25
+CM id 27 tid 27 eid 27 etid 27 c omnetpp::cMessage n "" pe -1
+BS id 27 tid 27 eid 27 etid 27 c Msgpacket n "" pe 15
+SH sm 2 sg 11
+ES t 0
+CL id 27 tid 27 eid 27 etid 27 c Msgpacket n "" pe 15 cid 28
+
+E # 16 t 0 m 5 ce 15 msg 27
+CM id 29 tid 29 eid 29 etid 29 c omnetpp::cMessage n "" pe -1
+BS id 29 tid 29 eid 29 etid 29 c Msgpacket n "" pe 16
+SH sm 5 sg 7
+ES t 0
+CL id 29 tid 29 eid 29 etid 29 c Msgpacket n "" pe 16 cid 30
+
+E # 17 t 0 m 2 ce 16 msg 29
+CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n "" pe -1
+BS id 31 tid 31 eid 31 etid 31 c Msgpacket n "" pe 17
+SH sm 2 sg 7
+ES t 0
+CL id 31 tid 31 eid 31 etid 31 c Msgpacket n "" pe 17 cid 32
+
+E # 18 t 0 m 3 ce 17 msg 31
+CM id 33 tid 33 eid 33 etid 33 c omnetpp::cMessage n "" pe -1
+BS id 33 tid 33 eid 33 etid 33 c Msgpacket n "" pe 18
+SH sm 3 sg 7
+ES t 0
+CL id 33 tid 33 eid 33 etid 33 c Msgpacket n "" pe 18 cid 34
+
+E # 19 t 0 m 2 ce 18 msg 33
+CM id 35 tid 35 eid 35 etid 35 c omnetpp::cMessage n "" pe -1
+BS id 35 tid 35 eid 35 etid 35 c Msgpacket n "" pe 19
+SH sm 2 sg 9
+ES t 0
+CL id 35 tid 35 eid 35 etid 35 c Msgpacket n "" pe 19 cid 36
+
+E # 20 t 0 m 4 ce 19 msg 35
+CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n "" pe -1
+BS id 37 tid 37 eid 37 etid 37 c Msgpacket n "" pe 20
+SH sm 4 sg 7
+ES t 0
+CL id 37 tid 37 eid 37 etid 37 c Msgpacket n "" pe 20 cid 38
+
+E # 21 t 0 m 2 ce 20 msg 37
+CM id 39 tid 39 eid 39 etid 39 c omnetpp::cMessage n "" pe -1
+BS id 39 tid 39 eid 39 etid 39 c Msgpacket n "" pe 21
+SH sm 2 sg 11
+ES t 0
+CL id 39 tid 39 eid 39 etid 39 c Msgpacket n "" pe 21 cid 40
+
+E # 22 t 0 m 5 ce 21 msg 39
+CM id 41 tid 41 eid 41 etid 41 c omnetpp::cMessage n "" pe -1
+BS id 41 tid 41 eid 41 etid 41 c Msgpacket n "" pe 22
+SH sm 5 sg 7
+ES t 0
+CL id 41 tid 41 eid 41 etid 41 c Msgpacket n "" pe 22 cid 42
+
+E # 23 t 0 m 2 ce 22 msg 41
+CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n "" pe -1
+SE e 0 c 13 m "No more events, simulation completed -- at t=0s, event #23"
