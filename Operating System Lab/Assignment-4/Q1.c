@@ -66,5 +66,7 @@ int main(int argc,char *argv[])
 		pthread_create(&tid_write,NULL,write_function,(void *)write_file);
 
 		pthread_join(tid_read,NULL);
+
+
 		pthread_join(tid_write,NULL);
 }
