@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
   struct addrinfo *result;
   memset(&hints , 0, sizeof( struct addrinfo ));
   
-  //TEC Stream Sockets
+  //TCP Stream Sockets
   hints.ai_family = AF_UNSPEC;
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = AI_PASSIVE;
